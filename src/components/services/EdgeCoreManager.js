@@ -29,6 +29,7 @@ type State = {
 const contextOptions = {
   apiKey: ENV.AIRBITZ_API_KEY,
   appId: '',
+  authServer: 'https://login1.edge.app/api',
   plugins: allPlugins
 }
 
