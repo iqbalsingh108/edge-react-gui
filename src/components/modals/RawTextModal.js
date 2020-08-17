@@ -8,8 +8,8 @@ import EntypoIcon from 'react-native-vector-icons/Entypo'
 
 import s from '../../locales/strings.js'
 import Text from '../../modules/UI/components/FormattedText/FormattedText.ui.js'
-import { type Theme, type ThemeProps, withTheme } from '../../theme/ThemeContext.js'
 import { showToast } from '../services/AirshipInstance.js'
+import { type Theme, type ThemeProps, withTheme } from '../services/ThemeContext.js'
 import { type AirshipBridge, AirshipModal, ContentArea, IconCircle } from './modalParts.js'
 
 type OwnProps = {

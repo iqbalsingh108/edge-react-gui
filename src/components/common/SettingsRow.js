@@ -4,7 +4,7 @@ import * as React from 'react'
 import { Text, TouchableHighlight, View } from 'react-native'
 import { cacheStyles } from 'react-native-patina'
 
-import { type Theme, type ThemeProps, withTheme } from '../../theme/ThemeContext.js'
+import { type Theme, type ThemeProps, withTheme } from '../services/ThemeContext.js'
 
 type OwnProps = {
   disabled?: boolean, // Show with grey style
