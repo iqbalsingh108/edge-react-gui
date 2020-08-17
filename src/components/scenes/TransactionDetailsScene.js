@@ -5,6 +5,7 @@ import type { EdgeCurrencyInfo, EdgeDenomination, EdgeMetadata, EdgeTransaction 
 import * as React from 'react'
 import { Image, Linking, Platform, ScrollView, TouchableWithoutFeedback, View } from 'react-native'
 import Mailer from 'react-native-mail'
+import { cacheStyles } from 'react-native-patina'
 import SafariView from 'react-native-safari-view'
 import slowlog from 'react-native-slowlog'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
@@ -19,7 +20,7 @@ import { getDisplayDenomination, getPlugins, getSettings } from '../../modules/S
 import { PrimaryButton2 } from '../../modules/UI/components/Buttons/PrimaryButton2.ui.js'
 import FormattedText from '../../modules/UI/components/FormattedText/FormattedText.ui.js'
 import { convertCurrencyFromExchangeRates, convertNativeToExchangeRateDenomination, getSelectedWallet, getWallet } from '../../modules/UI/selectors.js'
-import { type ThemeProps, cacheStyles, withTheme } from '../../theme/ThemeContext.js'
+import { type Theme, type ThemeProps, withTheme } from '../../theme/ThemeContext.js'
 import { type Dispatch, type State as ReduxState } from '../../types/reduxTypes.js'
 import type { GuiContact, GuiWallet } from '../../types/types.js'
 import { scale } from '../../util/scaling.js'
@@ -497,7 +498,7 @@ export class TransactionDetailsComponent extends React.Component<Props, State> {
   }
 }
 
-const getStyles = cacheStyles(theme => ({
+const getStyles = cacheStyles((theme: Theme) => ({
   tilesContainer: {
     flex: 1,
     width: '100%',

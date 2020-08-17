@@ -3,6 +3,7 @@
 import { type EdgeCurrencyInfo } from 'edge-core-js'
 import * as React from 'react'
 import { ActivityIndicator, Image, ScrollView } from 'react-native'
+import { cacheStyles } from 'react-native-patina'
 import { Actions } from 'react-native-router-flux'
 import AntDesignIcon from 'react-native-vector-icons/AntDesign'
 import { connect } from 'react-redux'
@@ -11,7 +12,7 @@ import * as Constants from '../../constants/indexConstants'
 import s from '../../locales/strings'
 import { notif1 } from '../../modules/notifServer.js'
 import { getActiveWalletCurrencyInfos } from '../../modules/UI/selectors'
-import { type ThemeProps, cacheStyles, withTheme } from '../../theme/ThemeContext.js'
+import { type Theme, type ThemeProps, withTheme } from '../../theme/ThemeContext.js'
 import { type State as ReduxState } from '../../types/reduxTypes.js'
 import { SceneWrapper } from '../common/SceneWrapper.js'
 import { SettingsRow } from '../common/SettingsRow.js'
@@ -109,14 +110,7 @@ export class NotificationComponent extends React.Component<Props, State> {
   }
 }
 
-export const NotificationScene = connect((state: ReduxState): StateProps => {
-  return {
-    currencyInfos: getActiveWalletCurrencyInfos(state),
-    userId: state.core.account.rootLoginId
-  }
-})(withTheme(NotificationComponent))
-
-const getStyles = cacheStyles(theme => ({
+const getStyles = cacheStyles((theme: Theme) => ({
   currencyLogo: {
     height: theme.rem(1.25),
     width: theme.rem(1.25),
@@ -127,3 +121,10 @@ const getStyles = cacheStyles(theme => ({
     alignSelf: 'center'
   }
 }))
+
+export const NotificationScene = connect((state: ReduxState): StateProps => {
+  return {
+    currencyInfos: getActiveWalletCurrencyInfos(state),
+    userId: state.core.account.rootLoginId
+  }
+})(withTheme(NotificationComponent))

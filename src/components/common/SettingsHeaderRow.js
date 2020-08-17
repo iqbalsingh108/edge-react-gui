@@ -2,8 +2,9 @@
 
 import * as React from 'react'
 import { Text, View } from 'react-native'
+import { cacheStyles } from 'react-native-patina'
 
-import { type ThemeProps, cacheStyles, withTheme } from '../../theme/ThemeContext.js'
+import { type Theme, type ThemeProps, withTheme } from '../../theme/ThemeContext.js'
 
 type OwnProps = {
   icon?: React.Node,
@@ -27,7 +28,7 @@ export function SettingsHeaderRowComponent(props: Props): React.Node {
   )
 }
 
-const getStyles = cacheStyles(theme => ({
+const getStyles = cacheStyles((theme: Theme) => ({
   row: {
     // Layout:
     minHeight: theme.rem(2.75),

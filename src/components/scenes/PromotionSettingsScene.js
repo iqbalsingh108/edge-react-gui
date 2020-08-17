@@ -3,13 +3,14 @@
 import { createInputModal } from 'edge-components'
 import * as React from 'react'
 import { Text, View } from 'react-native'
+import { cacheStyles } from 'react-native-patina'
 import AntDesignIcon from 'react-native-vector-icons/AntDesign'
 import { connect } from 'react-redux'
 import { sprintf } from 'sprintf-js'
 
 import { activatePromotion, removePromotion } from '../../actions/AccountReferralActions.js'
 import s from '../../locales/strings.js'
-import { type ThemeProps, cacheStyles, withTheme } from '../../theme/ThemeContext.js'
+import { type Theme, type ThemeProps, withTheme } from '../../theme/ThemeContext.js'
 import { THEME } from '../../theme/variables/airbitz.js'
 import { type Dispatch, type State as ReduxState } from '../../types/reduxTypes.js'
 import { type AccountReferral, type DeviceReferral } from '../../types/ReferralTypes.js'
@@ -94,7 +95,7 @@ export class PromotionSettingsComponent extends React.Component<Props> {
   }
 }
 
-const getStyles = cacheStyles(theme => ({
+const getStyles = cacheStyles((theme: Theme) => ({
   textBlock: {
     backgroundColor: theme.settingsRowBackground,
     padding: theme.rem(0.5)

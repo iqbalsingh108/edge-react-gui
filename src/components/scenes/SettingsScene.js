@@ -4,6 +4,7 @@ import type { EdgeAccount } from 'edge-core-js'
 import { getSupportedBiometryType } from 'edge-login-ui-rn'
 import * as React from 'react'
 import { Image, ScrollView, View } from 'react-native'
+import { cacheStyles } from 'react-native-patina'
 import { Actions } from 'react-native-router-flux'
 import AntDesignIcon from 'react-native-vector-icons/AntDesign'
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome'
@@ -26,7 +27,7 @@ import { CURRENCY_SETTINGS_KEYS } from '../../constants/WalletAndCurrencyConstan
 import s from '../../locales/strings'
 import * as SETTINGS_SELECTORS from '../../modules/Settings/selectors'
 import { PrimaryButton } from '../../modules/UI/components/Buttons/PrimaryButton.ui.js'
-import { type ThemeProps, cacheStyles, changeTheme, getTheme, withTheme } from '../../theme/ThemeContext.js'
+import { type Theme, type ThemeProps, changeTheme, getTheme, withTheme } from '../../theme/ThemeContext.js'
 import { edgeDark } from '../../theme/variables/edgeDark.js'
 import { edgeLight } from '../../theme/variables/edgeLight.js'
 import type { Dispatch, State as RootState } from '../../types/reduxTypes.js'
@@ -268,7 +269,7 @@ export class SettingsSceneComponent extends React.Component<Props, State> {
   }
 }
 
-const getStyles = cacheStyles(theme => {
+const getStyles = cacheStyles((theme: Theme) => {
   const iconSize = theme.rem(1.25)
   return {
     currencyLogo: {

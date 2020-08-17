@@ -2,11 +2,12 @@
 
 import * as React from 'react'
 import { Clipboard, TouchableWithoutFeedback, View } from 'react-native'
+import { cacheStyles } from 'react-native-patina'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 
 import s from '../../locales/strings.js'
 import Text from '../../modules/UI/components/FormattedText/FormattedText.ui.js'
-import { type ThemeProps, cacheStyles, withTheme } from '../../theme/ThemeContext.js'
+import { type Theme, type ThemeProps, withTheme } from '../../theme/ThemeContext.js'
 import { showToast } from '../services/AirshipInstance.js'
 
 type OwnProps = {
@@ -55,7 +56,7 @@ class TileComponent extends React.PureComponent<Props> {
   }
 }
 
-const getStyles = cacheStyles(theme => ({
+const getStyles = cacheStyles((theme: Theme) => ({
   container: {
     width: '100%',
     backgroundColor: theme.tileBackground,

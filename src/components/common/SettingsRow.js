@@ -2,8 +2,9 @@
 
 import * as React from 'react'
 import { Text, TouchableHighlight, View } from 'react-native'
+import { cacheStyles } from 'react-native-patina'
 
-import { type ThemeProps, cacheStyles, withTheme } from '../../theme/ThemeContext.js'
+import { type Theme, type ThemeProps, withTheme } from '../../theme/ThemeContext.js'
 
 type OwnProps = {
   disabled?: boolean, // Show with grey style
@@ -36,7 +37,7 @@ function SettingsRowComponent(props: Props): React.Node {
   )
 }
 
-const getStyles = cacheStyles(theme => ({
+const getStyles = cacheStyles((theme: Theme) => ({
   row: {
     // Appearance:
     backgroundColor: theme.settingsRowBackground,

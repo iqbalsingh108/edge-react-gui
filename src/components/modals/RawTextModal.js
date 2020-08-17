@@ -3,11 +3,12 @@
 import { PrimaryButton } from 'edge-components'
 import * as React from 'react'
 import { Clipboard, ScrollView, View } from 'react-native'
+import { cacheStyles } from 'react-native-patina'
 import EntypoIcon from 'react-native-vector-icons/Entypo'
 
 import s from '../../locales/strings.js'
 import Text from '../../modules/UI/components/FormattedText/FormattedText.ui.js'
-import { type ThemeProps, cacheStyles, withTheme } from '../../theme/ThemeContext.js'
+import { type Theme, type ThemeProps, withTheme } from '../../theme/ThemeContext.js'
 import { showToast } from '../services/AirshipInstance.js'
 import { type AirshipBridge, AirshipModal, ContentArea, IconCircle } from './modalParts.js'
 
@@ -51,7 +52,7 @@ export class RawTextModalComponent extends React.Component<Props> {
   }
 }
 
-const getStyles = cacheStyles(theme => ({
+const getStyles = cacheStyles((theme: Theme) => ({
   header: {
     width: '100%',
     textAlign: 'center',

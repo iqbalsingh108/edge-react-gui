@@ -2,11 +2,12 @@
 
 import React, { PureComponent } from 'react'
 import { Linking, Platform, ScrollView, StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native'
+import { cacheStyles } from 'react-native-patina'
 import SafariView from 'react-native-safari-view'
 import Entypo from 'react-native-vector-icons/Entypo'
 
 import s from '../../locales/strings.js'
-import { type ThemeProps, cacheStyles, withTheme } from '../../theme/ThemeContext.js'
+import { type Theme, type ThemeProps, withTheme } from '../../theme/ThemeContext.js'
 import { Tile } from '../common/Tile.js'
 import { ThemedModal } from '../themed/ThemedModal.js'
 import { type AirshipBridge } from './modalParts'
@@ -154,7 +155,7 @@ class TransactionAdvanceDetailsComponent extends PureComponent<Props> {
   }
 }
 
-const getStyles = cacheStyles(theme => ({
+const getStyles = cacheStyles((theme: Theme) => ({
   headerContainer: {
     height: theme.rem(3.75),
     justifyContent: 'center',
